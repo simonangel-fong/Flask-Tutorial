@@ -6,6 +6,7 @@
   - [Prerequisite](#prerequisite)
   - [Create Demo App](#create-demo-app)
   - [Dockerize](#dockerize)
+  - [Upload DockerHub](#upload-dockerhub)
 
 ---
 
@@ -65,3 +66,24 @@ docker run -d --name con_demoapi -p 8081:8080 img_demoapi
 - Test http://127.0.0.1:8081/api/info
 
 ![pic](./pic/demo02.png)
+
+---
+
+## Upload DockerHub
+
+```sh
+docker images
+# REPOSITORY                                            TAG         IMAGE ID       CREATED          SIZE
+# img_demoapi                                           latest      f45eeb63f602   14 minutes ago   117MB
+
+# retag image
+docker tag f45eeb63f602 simonangelfong/flask-demo:v1.0
+
+# confirm
+docker images
+# REPOSITORY                                            TAG         IMAGE ID       CREATED          SIZE
+# simonangelfong/flask-demo                             v1.0        f45eeb63f602   18 minutes ago   117MB
+
+# upload 
+docker push simonangelfong/flask-demo:v1.0
+```
